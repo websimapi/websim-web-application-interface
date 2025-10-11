@@ -1,4 +1,8 @@
-<!-- ...existing content... -->
+<link rel="stylesheet" href="/base.css">
+<link rel="stylesheet" href="/toolbar.css">
+<link rel="stylesheet" href="/components.css">
+<link rel="stylesheet" href="/modals.css">
+<link rel="stylesheet" href="/chat.css">
 <link rel="stylesheet" href="/app.css">
 <div id="app"></div>
 <script type="importmap">
@@ -6,11 +10,33 @@
   "imports": {
     "/components/header.js": "/components/header.js",
     "/components/footer.js": "/components/footer.js",
-    "/main.js": "/main.js"
+    "/main.js": "/main.js",
+    "three": "https://esm.sh/three@0.164.0",
+    "three/examples/jsm/controls/OrbitControls.js": "https://esm.sh/three@0.164.0/examples/jsm/controls/OrbitControls.js",
+    "three/examples/jsm/loaders/GLTFLoader.js": "https://esm.sh/three@0.164.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/examples/jsm/loaders/RGBELoader.js": "https://esm.sh/three@0.164.0/examples/jsm/loaders/RGBELoader.js",
+    "three/examples/jsm/loaders/EXRLoader.js": "https://esm.sh/three@0.164.0/examples/jsm/loaders/EXRLoader.js",
+    "three/examples/jsm/utils/BufferGeometryUtils.js": "https://esm.sh/three@0.164.0/examples/jsm/utils/BufferGeometryUtils.js",
+    "three/examples/jsm/renderers/webgpu/WebGPURenderer.js": "https://esm.sh/three@0.164.0/examples/jsm/renderers/webgpu/WebGPURenderer.js",
+    "jszip": "https://esm.sh/jszip@3.10.1",
+    "/setup-editor-ui.js": "/setup-editor-ui.js",
+    "/init.js": "/init.js"
   }
 }
 </script>
-<script type="module" src="/main.js"></script>
-<!-- ...existing content... -->
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
+import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
+import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { WebGPURenderer } from "three/examples/jsm/renderers/webgpu/WebGPURenderer.js";
+import JSZip from "jszip";
+window.THREE = Object.assign(THREE, { OrbitControls, GLTFLoader, RGBELoader, EXRLoader, BufferGeometryUtils, WebGPURenderer });
+window.BufferGeometryUtils = BufferGeometryUtils;
+window.JSZip = JSZip;
+import "/setup-editor-ui.js";
+import "/init.js";
+</script>
+<script type="module" src="/main.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
